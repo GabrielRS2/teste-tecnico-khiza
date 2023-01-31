@@ -62,6 +62,9 @@ export default defineComponent({
       this.getTrades()
       .then((_) => this.formatTrades())
     }
+  },
+  mounted() {
+    this.setFilters('BTC', '')
   }
 });
 </script>
