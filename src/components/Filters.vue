@@ -2,12 +2,13 @@
   <div class="container">
     <div class="inputContainer">
       <v-text-field
-        placeholder='dd/mm/yyyy'
+        placeholder='dd/mm/aaaa'
         label="Data"
         filled
         type="date-local"
         v-model="date"
         full-width
+        :rules="dateRules"
       />
     </div>
     <div class="inputContainer inputButtonContainer">
@@ -38,7 +39,13 @@ export default defineComponent({
     return {
       date: '' as string,
       coin: '' as string,
-      coins: coinsNames as String[]
+      coins: coinsNames as String[],
+      dateRules: [
+        (v: any) => v.length === 10 || v.length === 0 || 'Data inválida',
+        (v: any) => v.split("/")[0].length === 2 || v.length === 0 || 'Data inválida',
+        (v: any) => v.split("/")[1].length === 2 || v.length === 0 || 'Data inválida',
+        (v: any) => v.split("/")[2].length === 4 || v.length === 0 || 'Data inválida'
+      ],
     }
   },
   methods: {
