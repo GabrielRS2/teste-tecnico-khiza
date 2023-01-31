@@ -64,7 +64,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.setFilters('BTC', '')
+    this.setFilters('ETH', '')
   }
 });
 </script>
